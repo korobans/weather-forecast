@@ -1,2 +1,3 @@
 # weather-forecast
-Building a Model for Weather Prediction
+**Построение модели предсказания погодных условий**
+*v1.0 - вывод города и координат метеорологической вышки*
