@@ -1,0 +1,3 @@
+D:\learning cpp\project\x64\Debug\project.vcxproj.CopyComplete
+D:\learning cpp\project\x64\Debug\project.exe
+D:\learning cpp\project\x64\Debug\sqlite3.dll
