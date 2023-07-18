@@ -57,9 +57,9 @@ int main()
     for (int i = 0; i < city.size(); i++)
     {
         double distance = sqrt(pow(x-latitude[i], 2.0)+pow(y-longitude[i], 2.0)) * 111;
-        if (distance < 5)
+        if (distance < 500)
         {
-            vector<double> row = { temperature[i], latitude[i], longitude[i]};
+            vector<double> row = { temperature[i], latitude[i], longitude[i] };
             near.push_back(row);
         }
 
