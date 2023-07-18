@@ -3,8 +3,29 @@
 #include <cmath>
 #include <sqlite3.h>
 
+#define R 6371.0 // Радиус Земли в километрах
+#define M_PI 3.14159265358979323846
+
 using namespace std;
 
+double toRadians(double degrees) {
+    return degrees * M_PI / 180.0;
+}
+
+double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
+    double dLat = toRadians(lat2 - lat1);
+    double dLon = toRadians(lon2 - lon1);
+
+    double a = sin(dLat / 2) * sin(dLat / 2) +
+        cos(toRadians(lat1)) * cos(toRadians(lat2)) *
+        sin(dLon / 2) * sin(dLon / 2);
+
+    double c = 2 * atan2(sqrt(a), sqrt(1 - a));
+
+    double distance = R * c;
+
+    return distance;
+}
 
 int main() 
 {
@@ -38,11 +59,11 @@ int main()
     while (sqlite3_step(stmt) == SQLITE_ROW) 
     {
 
-        city.push_back(string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1))));
-        temperature.push_back(sqlite3_column_double(stmt, 2));
-        latitude.push_back(sqlite3_column_double(stmt, 3));
-        longitude.push_back(sqlite3_column_double(stmt, 4));
-        height.push_back(sqlite3_column_double(stmt, 5));
+        city.push_back(string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0))));
+        temperature.push_back(sqlite3_column_double(stmt, 1));
+        latitude.push_back(sqlite3_column_double(stmt, 2));
+        longitude.push_back(sqlite3_column_double(stmt, 3));
+        height.push_back(sqlite3_column_double(stmt, 4));
 
     }
 
@@ -56,10 +77,10 @@ int main()
 
     for (int i = 0; i < city.size(); i++)
     {
-        double distance = sqrt(pow(x-latitude[i], 2.0)+pow(y-longitude[i], 2.0)) * 111;
+        double distance = calculateDistance(x, y, latitude[i], longitude[i]);
         if (distance < 500)
         {
-            vector<double> row = { temperature[i], latitude[i], longitude[i] };
+            vector<double> row = { temperature[i], latitude[i], longitude[i] , distance};
             near.push_back(row);
         }
 
