@@ -3,16 +3,18 @@
 #include <cmath>
 #include <sqlite3.h>
 
-#define R 6371.0 // Радиус Земли в километрах
+#define R 6371.0
 #define M_PI 3.14159265358979323846
 
 using namespace std;
 
-double toRadians(double degrees) {
+double toRadians(double degrees) 
+{
     return degrees * M_PI / 180.0;
 }
 
-double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
+double calculateDistance(double lat1, double lon1, double lat2, double lon2) 
+{
     double dLat = toRadians(lat2 - lat1);
     double dLon = toRadians(lon2 - lon1);
 
@@ -21,7 +23,6 @@ double calculateDistance(double lat1, double lon1, double lat2, double lon2) {
         sin(dLon / 2) * sin(dLon / 2);
 
     double c = 2 * atan2(sqrt(a), sqrt(1 - a));
-
     double distance = R * c;
 
     return distance;
@@ -58,13 +59,11 @@ int main()
 
     while (sqlite3_step(stmt) == SQLITE_ROW) 
     {
-
         city.push_back(string(reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0))));
         temperature.push_back(sqlite3_column_double(stmt, 1));
         latitude.push_back(sqlite3_column_double(stmt, 2));
         longitude.push_back(sqlite3_column_double(stmt, 3));
         height.push_back(sqlite3_column_double(stmt, 4));
-
     }
 
     cout << "Введите широту и долготу через пробел : ";
@@ -74,7 +73,6 @@ int main()
 
     cout << endl;
 
-
     for (int i = 0; i < city.size(); i++)
     {
         double distance = calculateDistance(x, y, latitude[i], longitude[i]);
@@ -83,7 +81,6 @@ int main()
             vector<double> row = { temperature[i], latitude[i], longitude[i] , distance};
             near.push_back(row);
         }
-
     }
 
     for (vector<double> i : near)
@@ -96,6 +93,5 @@ int main()
 
     sqlite3_finalize(stmt);
     sqlite3_close(db);
-
     return 0;
 }
