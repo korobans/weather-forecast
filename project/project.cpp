@@ -69,7 +69,6 @@ int main()
     vector<double> latitude;
     vector<double> longitude;
     vector<double> height;
-    vector<double> length;
     vector<vector<double>> nearleft;
     vector<vector<double>> nearright;
     double x, y;
@@ -131,7 +130,8 @@ int main()
         if (t_statistic > critical_t) cout << "Использовать осреднение" << endl;
         else cout << "Использовать интерполяцию" << endl;
     }
-    else if (k < 10) cout << "Воруем у Вадима" << endl;
+    else cout << "Воруем у Вадима" << endl;
+
 
     sqlite3_finalize(stmt);
     sqlite3_close(db);
