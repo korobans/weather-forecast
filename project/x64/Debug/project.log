@@ -1,2 +1,3 @@
 ﻿  project.cpp
+D:\learning cpp\project\project.cpp(127,16): warning C4267: инициализация: преобразование из "size_t" в "int"; возможна потеря данных
   project.vcxproj -> D:\learning cpp\project\x64\Debug\project.exe
