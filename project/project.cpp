@@ -64,6 +64,8 @@ double calculateTStatistic(const vector<double>& group1, const vector<double>& g
 
 int main() 
 {
+    setlocale(LC_CTYPE, "ru_RU.UTF-8");
+
     vector<string> city;
     vector<double> temperature;
     vector<double> latitude;
