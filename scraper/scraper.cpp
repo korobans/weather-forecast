@@ -68,9 +68,6 @@ void waitingAnimation(atomic<bool>& animationActive) {
 
 int main()
 {
-	const char* filename = "weather_statistic.db";
-	remove(filename);
-
 	atomic<bool> animationActive(true);
 	thread animationThread(waitingAnimation, ref(animationActive));
 
@@ -156,6 +153,9 @@ int main()
 
 	animationActive = false;
 	animationThread.join();
+
+	const char* filename = "weather_statistic.db";
+	remove(filename);
 
 	sqlite3* db;
 
