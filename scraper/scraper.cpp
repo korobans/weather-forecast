@@ -1,13 +1,14 @@
 ﻿#include <iostream>
+#include <cstdio>
 #include <string>
 #include <curl/curl.h>
 #include "libxml/HTMLparser.h"
 #include "libxml/xpath.h"
+#include <sqlite3.h>
 #include <vector>
 #include <chrono>
 #include <thread>
 #include <atomic>
-#include <sqlite3.h>
 
 
 using namespace std;
@@ -67,6 +68,9 @@ void waitingAnimation(atomic<bool>& animationActive) {
 
 int main()
 {
+	const char* filename = "weather_statistic.db";
+	remove(filename);
+
 	atomic<bool> animationActive(true);
 	thread animationThread(waitingAnimation, ref(animationActive));
 
@@ -158,14 +162,6 @@ int main()
 	int rc = sqlite3_open("weather_statistic.db", &db);
 
 	char* errMsg;
-	string clearTableQuery = "DELETE FROM table_data;";
-	rc = sqlite3_exec(db, clearTableQuery.c_str(), nullptr, nullptr, &errMsg);
-	if (rc != SQLITE_OK)
-	{
-		cerr << "Ошибка при очистке таблицы: " << errMsg << endl;
-		sqlite3_free(errMsg);
-		return 1;
-	}
 
 	string createTableQuery = "CREATE TABLE IF NOT EXISTS table_data ("
 		"link TEXT, "
