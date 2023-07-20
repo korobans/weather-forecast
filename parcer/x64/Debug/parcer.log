@@ -1,3 +1,0 @@
-﻿  parcer.cpp
-D:\learning cpp\parcer\parcer.cpp(48,79): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-  parcer.vcxproj -> D:\learning cpp\parcer\x64\Debug\parcer.exe
