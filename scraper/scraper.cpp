@@ -154,7 +154,19 @@ int main()
 	animationThread.join();
 
 	sqlite3* db;
+
 	int rc = sqlite3_open("weather_statistic.db", &db);
+
+	char* errMsg;
+	string clearTableQuery = "DELETE FROM table_data;";
+	rc = sqlite3_exec(db, clearTableQuery.c_str(), nullptr, nullptr, &errMsg);
+	if (rc != SQLITE_OK)
+	{
+		cerr << "Ошибка при очистке таблицы: " << errMsg << endl;
+		sqlite3_free(errMsg);
+		return 1;
+	}
+
 	string createTableQuery = "CREATE TABLE IF NOT EXISTS table_data ("
 		"link TEXT, "
 		"city TEXT, "
@@ -163,7 +175,6 @@ int main()
 		"longitude REAL, "
 		"height INTEGER);";
 
-	char* errMsg;
 	rc = sqlite3_exec(db, createTableQuery.c_str(), nullptr, nullptr, &errMsg);
 	string insertQuery = "INSERT OR REPLACE INTO table_data (link, city, temperature, latitude, longitude, height) VALUES (?, ?, ?, ?, ?, ?);";
 	sqlite3_stmt* stmt;
