@@ -165,7 +165,7 @@ int main()
 
 	char* errMsg;
 	rc = sqlite3_exec(db, createTableQuery.c_str(), nullptr, nullptr, &errMsg);
-	string insertQuery = "INSERT INTO table_data (link, city, temperature, latitude, longitude, height) VALUES (?, ?, ?, ?, ?, ?);";
+	string insertQuery = "INSERT OR REPLACE INTO table_data (link, city, temperature, latitude, longitude, height) VALUES (?, ?, ?, ?, ?, ?);";
 	sqlite3_stmt* stmt;
 
 	for (size_t i = 0; i < weather.link.size(); ++i)
