@@ -108,7 +108,7 @@ int main()
 		}
 	}
 
-	int e = 0;
+	//int e = 0;
 	for (string link : weather.link)
 	{
 		string html_link = GetWebsiteData(link);
@@ -146,8 +146,8 @@ int main()
 		int iAltitude = stoi(altitude);
 
 		weather.addLocation(dLatitude, dLongitude, iAltitude);
-		cout << weather.city[e] << " " << weather.temperature[e] << " " << weather.latitude[e] << " " << weather.longitude[e] << " " << weather.height[e] << endl;
-		e++;
+		//cout << weather.city[e] << " " << weather.temperature[e] << " " << weather.latitude[e] << " " << weather.longitude[e] << " " << weather.height[e] << endl;
+		//e++;
 	}
 
 	animationActive = false;
