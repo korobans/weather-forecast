@@ -1,0 +1,9 @@
+# ninja log v5
+2	1161	7116460123387948	weather_forecast_autogen/timestamp	591b64eb524acda1
+2	1161	7116460123387948	weather_forecast_autogen/mocs_compilation.cpp	591b64eb524acda1
+2	1161	7116460123387948	C:/Users/Vladimir/source/repos/weather-forecast/Qt/build-weather_forecast-Desktop_Qt_5_15_2_MinGW_32_bit-Debug/weather_forecast_autogen/timestamp	591b64eb524acda1
+2	1161	7116460123387948	C:/Users/Vladimir/source/repos/weather-forecast/Qt/build-weather_forecast-Desktop_Qt_5_15_2_MinGW_32_bit-Debug/weather_forecast_autogen/mocs_compilation.cpp	591b64eb524acda1
+1163	4504	7116460158880215	CMakeFiles/weather_forecast.dir/weather_forecast_autogen/mocs_compilation.cpp.obj	1059df3a027962e5
+1178	4632	7116460160330537	CMakeFiles/weather_forecast.dir/main.cpp.obj	ea0acb553ee570d9
+1170	4698	7116460161020734	CMakeFiles/weather_forecast.dir/mainwindow.cpp.obj	1352fa024f61219e
+4699	5443	7116460168410587	weather_forecast.exe	caa9d037ee9770a3
