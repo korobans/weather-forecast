@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\learning cpp\scraper\x64\Debug\scraper.exe</FullPath>
+      <FullPath>D:\weather-forecast\scraper\x64\Debug\scraper.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

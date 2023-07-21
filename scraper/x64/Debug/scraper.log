@@ -1,4 +1,4 @@
 ﻿  scraper.cpp
-D:\learning cpp\scraper\scraper.cpp(83,72): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-D:\learning cpp\scraper\scraper.cpp(116,69): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
-  scraper.vcxproj -> D:\learning cpp\scraper\x64\Debug\scraper.exe
+D:\weather-forecast\scraper\scraper.cpp(94,72): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+D:\weather-forecast\scraper\scraper.cpp(132,69): warning C4267: аргумент: преобразование из "size_t" в "int"; возможна потеря данных
+  scraper.vcxproj -> D:\weather-forecast\scraper\x64\Debug\scraper.exe
